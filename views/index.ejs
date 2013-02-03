@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+  <head>
+    <title><%= title %></title>
+
+    <%- include common-head.ejs %>
+  </head>
+
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+
+  <!-- Navbar
+    ================================================== -->
+<div id="top" class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="../"><i class="icon-github index-logo"></i> <%= title %></a>
+      <div class="nav-collapse" id="main-menu">
+        <ul class="nav pull-right">
+          <li class="dropdown">
+            <a href="/account" class="dropdown-toggle account" data-toggle="dropdown" href="#"><img id="avatar" src="<%= userInfo.avatar_url %>" class="img-circle"> <%= userInfo.login %></a>
+            <ul class="dropdown-menu" id="swatch-menu">
+              <li><a href="/logout"><i class="icon-off"></i> <%- __('Logout') %></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- main container -->
+<div class="container">
+
+<header id="overview" class="jumbotron subhead clearfix">
+
+  <div class="row">
+    <div class="span7">
+      <ul class="nav nav-pills">
+        <!-- TODO: fix hard-coding -->
+        <li class="active"><a class="language" href="#">All</a></li>
+        <li><a class="language" href="#objective-c">Objective-C</a></li>
+        <li><a class="language" href="#javascript">JavaScript</a></li>
+        <li><a class="language" href="#perl">Java</a></li>
+        <li><a class="language" href="#ruby">Ruby</a></li>
+        <li><a class="language" href="#python">Python</a></li>
+        <li><a class="language" href="#php">PHP</a></li>
+        <li><a class="language" href="#perl">Perl</a></li>
+      </ul>
+    </div>
+
+    <div class="span2" style="padding-top:8px">
+      <span id="repo-badge" class="badge"></span>
+    </div>
+
+    <div class="span3">
+      <div class="btn-toolbar pull-right" style="margin-top:2px">
+        <div class="btn-group">
+          <a id="search-all" class="btn" href="#"><i class="icon-reorder"></i></a>
+          <a id="search-image" class="btn" href="#"><i class="icon-picture"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<ul id="repo-ul" class="thumbnails">
+</ul>
+
+<script id="repo-li-template" type="text/html">
+  <li class="span4">
+    <div class="thumbnail">
+
+      <div class="slides">
+        {{#imageUrls}}
+        <div class="image-container">
+          <img class="media-object img-polaroid" src="{{ imageUrl }}">
+        </div>
+        {{/imageUrls}}
+        {{^imageUrls}}
+        {{/imageUrls}}
+      </div>
+
+      <p class="current_slide"></p>
+
+      <div class="caption">
+        <h3><a href="{{ ownerUrl }}">{{ userName }}</a>/<a href="{{ htmlUrl }}">{{ repoName }}</a></h3>
+        <p class="description">
+          <small>{{ description }}</small>
+        </p>
+
+        <div class="">
+          <p class="pushed-at muted">
+            <small>Last updated <time class="js-relative-date" datetime="{{ pushedAt }}" title="{{ pushedAt }}">{{ pushedAt }}</time></small>
+          </p>
+          <p>
+            <i class="icon-star"></i> <a href="{{ starUrl }}">{{ watchers }}</a>
+            <i class="icon-random"></i> <a href="{{ forkUrl }}">{{ forks }}</a>
+          </p>
+        </div>
+        <p>
+          {{#isFork}}<p class="fork-flag">forked from <a href="/jverkoey/nimbus">jverkoey/nimbus</a></p>{{/isFork}}
+        </p>
+      </div>
+    </div>
+  </li>
+</script>
+
+
+<br><br><br><br>
+
+     <!-- Footer
+      ================================================== -->
+      <hr>
+
+      <footer id="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Yasuhiro Inami (GitHub: <a target="_blank" href="http://github.com/inamiy/">@inamiy</a>)</p>
+        <p>
+          Based on <a target="_blank" href="http://nodejs.org/">Node.js</a> + <a target="_blank" href="http://redis.io/">Redis</a> + <a target="_blank" href="http://twitter.github.com/bootstrap/">Bootstrap</a> + <a target="_blank" href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>, using <a target="_blank" href="http://developer.github.com/v3/">GitHub API v3</a>.<br>
+          Developed on 2013 Feb 02-03, in <a target="_blank" href="http://qiitahackathon03.peatix.com/">Qiita 2-day Hackathon</a>.
+        </p>
+      </footer>
+
+</div><!-- /container -->
+
+    <%- include common-script.ejs %>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>-->
+
+    <!-- ICanHaz: A clean solution for templating with Mustache.js and jQuery or Zepto -->
+    <script src="//raw.github.com/HenrikJoreteg/ICanHaz.js/3583759800d5249bf60424592cb827f3bcf2c412/ICanHaz.min.js"></script>
+
+    <!-- Moment: Parse, validate, manipulate, and display dates in javascript. -->
+    <script src="//raw.github.com/timrwood/moment/1.7.2/min/moment.min.js"></script>
+
+    <!-- SlidesJS version 2.0.1 beta by Nathan Searles http://slidesjs.com/ -->
+    <!--<script src="//raw.github.com/nathansearles/Slides/016010ba8ed30154b2ee773a5a63c5e11f1166b4/source/slides.js"></script>-->
+    <script src="//raw.github.com/inamiy/Slides/master/source/slides.js"></script>
+
+    <script src="/javascripts/gitfav.js"></script>
+
+  </body>
+</html>

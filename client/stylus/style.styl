@@ -1,0 +1,258 @@
+/*------------------------------
+  Top
+------------------------------*/
+body
+  padding-bottom: 20px
+
+.centerize
+  display: table
+
+.centerize > div
+  display: table-cell
+  vertical-align: middle
+  text-align: center
+
+.navbar-static-top
+  margin-bottom: 20px
+
+.icon-github.index-logo
+  font-size:20px
+  color:#333
+
+.icon-github.login-logo
+  font-size:250px
+  color:#333
+
+#avatar
+  width:22px
+  height:22px
+  margin-top:-3px
+
+.section-row
+ height: 50px
+
+.section-row > div
+ text-align: right
+
+.dropdown-menu li > span,
+.dropdown-menu li > div
+  display: block
+  padding: 3px 20px
+
+#repo-badge
+  font-size: 16px
+  visibility: hidden
+
+.thumbnail .image-container
+  width: 290px
+  text-align: center
+
+.thumbnail h3
+  word-wrap: break-word
+  line-height: 30px
+
+.thumbnail p.owner
+  word-wrap: break-word
+  font-size: 14px
+  margin-top: 10px
+  margin-bottom: 5px
+
+.thumbnail p.repo
+  word-wrap: break-word
+  font-size: 26px
+  line-height: 30px
+
+.thumbnail img
+  max-width: 280px
+  max-height: 180px
+  text-align: center
+  margin: 0 auto
+
+/*------------------------------
+  SlidesJS example css
+  https://github.com/nathansearles/Slides/
+------------------------------*/
+.slides
+  position: relative
+
+.slides .slidesContainer
+  //background:#fff
+  //border:8px solid #fff
+  //box-shadow: 0 2.5px 5px rgba(0,0,0,.1)
+
+/*
+  Next/prev buttons
+*/
+
+.slides .slidesNext, .slides .slidesPrevious
+  position: absolute
+  bottom: 0px
+  width: 24px
+  height: 0
+  padding-top: 32px
+  display: block
+  z-index: 101
+  overflow: hidden
+  background: url(/images/slides/navigation-previous.png) no-repeat 0 0
+
+.slides .slidesNext
+  right: 0px
+  background: url(/images/slides/navigation-next.png) no-repeat 0 0
+
+/*
+  Pagination
+*/
+
+.slidesPagination
+  position: absolute
+  bottom: 0px
+  left: 90px
+
+.slidesPagination li
+  float: left
+  margin: 0 1px
+  list-style: none
+
+.slidesPagination li a
+  display: block
+  width: 14px
+  height: 0
+  padding-top: 14px
+  background-image: url(/images/slides/pagination.png)
+  background-position: 0 0
+  overflow: hidden
+
+.slidesPagination li.slidesCurrent a
+  background-position: 0 -14px
+
+.current_slide
+  margin: 0
+  text-align: center
+
+.controls
+  display: block
+  margin-top: 12px
+  float: left
+  color: #333
+  font: bold 10px/1.33 sans-serif
+  margin-right: 10px
+
+/*------------------------------
+  BootSwatch 2.1.0 Cerulean Override
+------------------------------*/
+.control-group.warning .checkbox, .control-group.warning .radio, .control-group.warning input, .control-group.warning select, .control-group.warning textarea
+  box-shadow: none
+  -webkit-box-shadow: none
+  -moz-box-shadow: none
+
+/*
+// Radios and checkboxes on same line
+.radio.inline,
+.checkbox.inline {
+  display: inline-block
+}
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: 10px
+}
+*/
+/*------------------------------
+  Second NavBar / Alert
+------------------------------*/
+#alert-bottom
+  position: fixed
+  z-index: 100
+  bottom: 20px
+
+  .alert
+    max-width: 500px
+    margin: 0 auto
+
+#second
+  background-color: white
+
+  &.second-fixed
+    background-color: white
+    box-shadow: 0px 0px 20px #888
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1020
+
+    /*#alert-top
+      top: 60px*/
+
+  #word-search
+    margin-top: 15px
+
+  #word-title
+    margin-right: 10px
+    //max-width: 150px
+    max-width: 500px
+    max-height: 60px
+    white-space: nowrap
+
+  /* http://jsfiddle.net/brennan/mcYKE/2/ */
+  button.save.loading
+    background-image:
+      -webkit-gradient(linear, 0 0, 100% 100%,
+        color-stop(.25, rgba(0, 0, 0, .10)),
+        color-stop(.25, transparent),
+        color-stop(.5, transparent),
+        color-stop(.5, rgba(0, 0, 0, .10)),
+        color-stop(.75, rgba(0, 0, 0, .10)),
+        color-stop(.75, transparent),
+        to(transparent)
+      )
+    background-image:
+      -moz-linear-gradient(-45deg,
+        rgba(0, 0, 0, .10) 25%,
+        transparent 25%,
+        transparent 50%, rgba(0, 0, 0, .10) 50%,
+        rgba(0, 0, 0, .10) 75%,
+        transparent 75%, transparent
+      )
+    background-size: 50px 50px
+    -moz-background-size: 50px 50px
+    -webkit-background-size: 50px 50px
+    -webkit-animation: animate-stripes 2s linear infinite
+
+  @-webkit-keyframes animate-stripes
+    from
+      background-position: 0 0
+    to
+      background-position: -50px 0
+
+  #alert-top
+    position: fixed
+    z-index: 100
+    top: 5px
+    right: 5px
+
+    .alert
+      //max-width: 500px
+      margin: 0 auto
+      padding-right: 14px
+
+  .control-group
+    margin-top: 15px
+
+  .btn-toolbar
+    margin-top: 15px
+
+#scroll-top
+  text-align: right
+
+/*------------------------------
+  Starred Repos
+------------------------------*/
+#repo-ul
+  img.owner-avatar
+    width: 80px
+    height: 80px
+
+  li.repo
+    padding: 10px
+    width: 400px
+    display: inline-block
