@@ -1,2 +1,4 @@
 log/
 node_modules/
+config/github-key.json
+config/github-dev-key.json
